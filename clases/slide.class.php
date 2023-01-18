@@ -102,7 +102,7 @@ class slide extends ConexionCrud{
     //         }
     // }
 
-    private function insertarSlide(){
+    public function insertarSlide(){
         $query ="INSERT INTO " . $this->table . " (nombre,nombre2,ruta_url,estado) 
         values ('". $this->nombre."','". $this->nombre2."','". $this->ruta_url."','". $this->estado."') ";
 

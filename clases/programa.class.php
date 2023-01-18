@@ -38,8 +38,10 @@ class programa extends ConexionCrud{
             
         }else{
 
-        $query = "SELECT * FROM " . $this->table . " WHERE estado = '1' and id_programas= '$id'";
+        $query = "SELECT * FROM " . $this->table . " tb1 INNER JOIN web_programa_descripcion tb2 ON tb1.id_programas=tb2.id_programas WHERE tb1.estado = '1' and tb1.id_programas= '$id'";
         return parent::listar($query);
+
+        
 
         }
 
