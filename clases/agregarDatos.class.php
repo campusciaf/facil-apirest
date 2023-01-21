@@ -18,6 +18,7 @@ class agregarDatos extends ConexionCrud{
     private $identificacion="";
     private $medio="Web";
     private $estado="Interesado";
+    private $clave="";
 
 
     public function insertaragregarDatos($json){
@@ -41,7 +42,7 @@ class agregarDatos extends ConexionCrud{
             /* ******************************* */
        
             $this->identificacion="1".$key;
-
+            $this->clave = md5($this->identificacion);
 
             $datos= json_decode($json,true);
 
@@ -63,8 +64,8 @@ class agregarDatos extends ConexionCrud{
 
                     
 
-                $query ="INSERT INTO " . $this->table . " (identificacion,fo_programa,nombre,celular,email,periodo_ingreso,fecha_ingreso,hora_ingreso,medio,estado,periodo_campana) 
-                values ('". $this->identificacion."','". $this->fo_programa."','". $this->nombre."','". $this->celular."','". $this->correo."','". $periodo_actual."','". $fecha."','". $hora."','". $this->medio."','". $this->estado."','". $periodo_campana."') ";
+                $query ="INSERT INTO " . $this->table . " (identificacion,fo_programa,nombre,celular,email,clave,periodo_ingreso,fecha_ingreso,hora_ingreso,medio,estado,periodo_campana) 
+                values ('". $this->identificacion."','". $this->fo_programa."','". $this->nombre."','". $this->celular."','". $this->correo."','". $this->clave."','". $periodo_actual."','". $fecha."','". $hora."','". $this->medio."','". $this->estado."','". $periodo_campana."') ";
                 
                 $resp = parent::nonQueryId($query);
                 if($resp){
