@@ -30,7 +30,7 @@ class slide extends ConexionCrud{
             
         }else{
 
-                $query = "SELECT * FROM " . $this->table . " WHERE estado = '1'";
+                $query = "SELECT * FROM " . $this->table . " WHERE estado = '1' ORDER BY id_banner DESC";
                 return parent::listar($query);
            
         }

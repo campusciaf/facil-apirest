@@ -26,7 +26,8 @@ class ConexionCrud
     public function nonQuery($sqlstr){
         global $mbd;
         $consulta = $mbd->prepare($sqlstr);
-        return $consulta->execute();
+        $consulta->execute();
+        return $consulta->rowCount();
     }
 
 
